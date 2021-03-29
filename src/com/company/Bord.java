@@ -1,22 +1,19 @@
 package com.company;
 
 public class Bord {
-    String[] row = new String[7];
-    String[][] board = new String[6][];
+    String[][] board = new String[6][7];
 
     public Bord() {
-        for (int i = 0; i < row.length; i++) {
-            row[i] = " ";
-        }
-
         for (int i = 0; i < board.length; i++) {
-            board[i] = row;
+            for (int j = 0; j < board[i].length; j++) {
+                board[i][j] = " ";
+            }
         }
 
         printBoard();
     }
 
-    void printBoard() {
+    public void printBoard() {
         for (char i = 'a'; i < ('a' + board[0].length); i++) {
             System.out.print("  " + i + " ");
         }
@@ -34,9 +31,9 @@ public class Bord {
         }
         System.out.println("");
         for (int i = 0; i < board[0].length; i++) {
-                System.out.print("  - ");
-
+            System.out.print("  - ");
         }
+        System.out.println("");
     }
 
 }
