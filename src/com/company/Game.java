@@ -13,10 +13,15 @@ public class Game {
 
     private void turn(String player){
         Scanner input = new Scanner(System.in);
-        System.out.println("Speler " + player + " in welke kolom wil je je steen gooien?");
+        System.out.println("Speler " + player + " in welke kolom wil je je steen gooien? Gebruik geen hoofdletters.");
         char column = input.nextLine().toLowerCase().charAt(0);
-        System.out.println("Kolom: " + column);
-        speelrek.printBoard();
+        if(column >= 'a' && column <= 'g'){
+            speelrek.dropPiece(column, player);
+            speelrek.printBoard();
+        }else {
+            System.out.println("Die kolom bestaat niet, probeer opnieuw");
+            turn(player);
+        }
     }
 
     public void playGame() {
