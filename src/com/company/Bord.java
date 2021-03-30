@@ -36,38 +36,59 @@ public class Bord {
         System.out.print("\n");
     }
 
-private void columnDrop(int index, String steen){
-    for (int i = 0; i < board.length; i++) {
-        if (board[i][index].equals(" ")) {
-            board[i][index] = steen;
-            break;
-        }
-    }
-}
-    public void dropPiece(char column, String speler) {
-        String steen = speler.substring(0, 1);
+    private int convertCharToIndex(char column) {
+        int index = 0;
         switch (column) {
             case 'a':
-                columnDrop(0, steen);
+                index = 0;
                 break;
             case 'b':
-                columnDrop(1, steen);
+                index = 1;
                 break;
             case 'c':
-                columnDrop(2, steen);
+                index = 2;
                 break;
             case 'd':
-                columnDrop(3, steen);
+                index = 3;
                 break;
             case 'e':
-                columnDrop(4, steen);
+                index = 4;
                 break;
             case 'f':
-                columnDrop(5, steen);
+                index = 5;
                 break;
             case 'g':
-                columnDrop(6, steen);
+                index = 6;
                 break;
         }
+        return index;
+    }
+
+    public boolean checkColumnFull(char column) {
+        int index = convertCharToIndex(column);
+        boolean full = false;
+        for (int i = 0; i < board.length; i++) {
+            if (board[i][index].equals(" ")) {
+                full = false;
+            } else {
+                full = true;
+            }
+        }
+        return full;
+    }
+
+    private void columnDrop(int index, String steen) {
+        for (int i = 0; i < board.length; i++) {
+            if (board[i][index].equals(" ")) {
+                board[i][index] = steen;
+                break;
+            }
+        }
+    }
+
+    public void dropPiece(char column, String speler) {
+        String steen = speler.substring(0, 1);
+        int index = convertCharToIndex(column);
+        columnDrop(index, steen);
     }
 }
