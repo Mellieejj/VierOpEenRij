@@ -77,7 +77,11 @@ public class Bord {
         return full;
     }
 
-    private void columnDrop(int index, String steen) {
+
+
+    public void dropPiece(char column, String speler) {
+        String steen = speler.substring(0, 1);
+        int index = convertCharToIndex(column);
         for (int i = 0; i < board.length; i++) {
             if (board[i][index].equals(" ")) {
                 board[i][index] = steen;
@@ -86,9 +90,22 @@ public class Bord {
         }
     }
 
-    public void dropPiece(char column, String speler) {
+    public int horizontalCheck(String speler) {
         String steen = speler.substring(0, 1);
-        int index = convertCharToIndex(column);
-        columnDrop(index, steen);
+        int counter = 0;
+        for (int i = 0; i < board.length; i++) {
+            for (int j = 0; j < board[i].length; j++) {
+                if (board[i][j].equals(steen)) {
+                    counter++;
+                } else {
+                    counter = 0;
+                }
+                if (counter == 4) {
+                    return 1;
+                }
+            }
+
+        }
+        return 0;
     }
 }

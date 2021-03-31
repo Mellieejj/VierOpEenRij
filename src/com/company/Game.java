@@ -28,7 +28,7 @@ public class Game {
 
     private void turn(String player) {
         Scanner input = new Scanner(System.in);
-        System.out.println("Speler " + player + " in welke kolom wil je je steen gooien? Gebruik geen hoofdletters.");
+        System.out.println("Speler " + player + " in welke kolom wil je je steen gooien?");
         char column = input.nextLine().toLowerCase().charAt(0);
         if (column >= 'a' && column <= 'g') {
             if (speelrek.checkColumnFull(column)) {
@@ -44,14 +44,22 @@ public class Game {
         }
     }
 
+    private void winnerCheck(String player){
+        if (speelrek.horizontalCheck(player) == 1){
+            winner = true;
+        }
+    }
+
     public void playGame() {
         randomPlayerOrder();
         while (!winner) {
             for (String player : players) {
                 turn(player);
-            }
-            if (winner) {
-                break;
+                winnerCheck(player);
+              if(winner){
+                  System.out.println("Speler " + player + " heeft gewonnen!");
+                  break;
+              };
             }
         }
     }
