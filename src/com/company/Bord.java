@@ -76,7 +76,7 @@ public class Bord {
         }
         return full;
     }
-    
+
     public void dropPiece(char column, String speler) {
         String steen = speler.substring(0, 1);
         int index = convertCharToIndex(column);
@@ -88,42 +88,44 @@ public class Bord {
         }
     }
 
-    public int horizontalCheck(String speler) {
+    public boolean horizontalCheck(String speler) {
         String steen = speler.substring(0, 1);
-        int counter = 0;
-        for (int i = 0; i < board.length; i++) {
-            for (int j = 0; j < board[i].length; j++) {
-                if (board[i][j].equals(steen)) {
-                    counter++;
-                } else {
-                    counter = 0;
-                }
-                if (counter == 4) {
-                    return 1;
+
+        for (String[] row : board) {
+            for (int j = 0; j < row.length - 3; j++) {
+                if (row[j].equals(steen)
+                        && row[j + 1].equals(steen)
+                        && row[j + 2].equals(steen)
+                        && row[j + 3].equals(steen)) {
+                    return true;
                 }
             }
         }
-        return 0;
+        return false;
     }
 
-    public int verticalCheck(String player) {
+    public boolean verticalCheck(String player) {
         String steen = player.substring(0, 1);
-        int counter = 0;
+
         int index = 0;
 
         while (index < board[0].length) {
-            for (int i = 0; i < board.length; i++) {
-                if (board[i][index].equals(steen)) {
-                    counter++;
-                } else {
-                    counter = 0;
-                }
-                if (counter == 4) {
-                    return 1;
+            for (int i = 0; i < board.length - 3; i++) {
+                if (board[i][index].equals(steen)
+                        && board[i + 1][index].equals(steen)
+                        && board[i + 2][index].equals(steen)
+                        && board[i + 3][index].equals(steen)) {
+                    return true;
                 }
             }
             index++;
         }
-        return 0;
+        return false;
+    }
+
+    public boolean diagonaleCheck(String player) {
+        String steen = player.substring(0, 1);
+
+        return false;
     }
 }

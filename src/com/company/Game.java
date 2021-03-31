@@ -45,10 +45,13 @@ public class Game {
     }
 
     private void winnerCheck(String player){
-        if (speelrek.horizontalCheck(player) == 1){
+        if (speelrek.horizontalCheck(player)){
             winner = true;
         }
-        if (speelrek.verticalCheck(player) == 1){
+        if (speelrek.verticalCheck(player)){
+            winner = true;
+        }
+        if(speelrek.diagonaleCheck(player)){
             winner = true;
         }
     }
