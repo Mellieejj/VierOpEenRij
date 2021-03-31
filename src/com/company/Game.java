@@ -48,6 +48,9 @@ public class Game {
         if (speelrek.horizontalCheck(player) == 1){
             winner = true;
         }
+        if (speelrek.verticalCheck(player) == 1){
+            winner = true;
+        }
     }
 
     public void playGame() {

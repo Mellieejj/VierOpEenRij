@@ -108,4 +108,25 @@ public class Bord {
         }
         return 0;
     }
+
+    public int verticalCheck(String player){
+        String steen = player.substring(0,1);
+        int counter = 0;
+        int index = 0;
+
+        while(index < board[0].length){
+            for (int i = 0; i< board.length; i++){
+                if(board[i][index].equals(steen)){
+                    counter++;
+                } else {
+                    counter = 0;
+                }
+                if (counter == 4){
+                    return 1;
+                }
+            }
+            index++;
+        }
+        return 0;
+    }
 }
