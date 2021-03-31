@@ -76,9 +76,7 @@ public class Bord {
         }
         return full;
     }
-
-
-
+    
     public void dropPiece(char column, String speler) {
         String steen = speler.substring(0, 1);
         int index = convertCharToIndex(column);
@@ -104,24 +102,23 @@ public class Bord {
                     return 1;
                 }
             }
-
         }
         return 0;
     }
 
-    public int verticalCheck(String player){
-        String steen = player.substring(0,1);
+    public int verticalCheck(String player) {
+        String steen = player.substring(0, 1);
         int counter = 0;
         int index = 0;
 
-        while(index < board[0].length){
-            for (int i = 0; i< board.length; i++){
-                if(board[i][index].equals(steen)){
+        while (index < board[0].length) {
+            for (int i = 0; i < board.length; i++) {
+                if (board[i][index].equals(steen)) {
                     counter++;
                 } else {
                     counter = 0;
                 }
-                if (counter == 4){
+                if (counter == 4) {
                     return 1;
                 }
             }
