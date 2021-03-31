@@ -129,7 +129,7 @@ public class Bord {
         for (int i = 0; i < board.length - 3; i++) {
             for (int j = 0; j < board[i].length - 3; j++) {
                 if (board[i][j].equals(steen) && board[i + 1][j + 1].equals(steen) && board[i + 2][j + 2].equals(steen) && board[i + 3][j + 3].equals(steen)) {
-                    System.out.println("1");
+//                    System.out.println("1");
                     return true;
                 }
             }
@@ -139,7 +139,7 @@ public class Bord {
         for (int i = board.length - 1; i > board.length - 3; i--) {
             for (int j = 0; j < board[i].length - 3; j++) {
                 if (board[i][j].equals(steen) && board[i - 1][j + 1].equals(steen) && board[i - 2][j + 2].equals(steen) && board[i - 3][j + 3].equals(steen)) {
-                    System.out.println("2");
+//                    System.out.println("2");
                     return true;
                 }
             }
@@ -149,7 +149,7 @@ public class Bord {
         for (int i = 0; i < board.length - 3; i++) {
             for (int j = board[0].length - 1; j > board[i].length - 3; j--) {
                 if (board[i][j].equals(steen) && board[i + 1][j - 1].equals(steen) && board[i + 2][j - 2].equals(steen) && board[i + 3][j - 3].equals(steen)) {
-                    System.out.println("3");
+//                    System.out.println("3");
                     return true;
                 }
             }
@@ -159,7 +159,7 @@ public class Bord {
         for (int i = board.length - 1; i > board.length - 3; i--) {
             for (int j = board[0].length - 1; j > board[i].length - 3; j--) {
                 if (board[i][j].equals(steen) && board[i - 1][j - 1].equals(steen) && board[i - 2][j - 2].equals(steen) && board[i - 3][j - 3].equals(steen)) {
-                    System.out.println("4");
+//                    System.out.println("4");
                     return true;
                 }
             }
